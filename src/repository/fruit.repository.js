@@ -1,42 +1,42 @@
-const { FruitModel } = require("../model/schema");
+const { FruitModel } = require('../model/schema')
 
 const findFruits = async (name) => {
-  const data = await FruitModel.findOne({ name });
-  return data;
-};
+  const data = await FruitModel.findOne({ name })
+  return data
+}
 
 const saveNewFruit = async (name, description, limit) => {
-  const isAlready=await FruitModel.find({name})
-    if(isAlready?.length>0){
-    throw new Error("Already exists")
+  const isAlready = await FruitModel.find({ name })
+  if (isAlready?.length > 0) {
+    throw new Error('Already exists')
   }
-  const fruit = new  FruitModel({
+  const fruit = new FruitModel({
     name,
     description,
-    limit,
+    limit
   }).save()
-  return fruit;
-};
+  return fruit
+}
 
 const updateFruit = async (fruit, name, description, limit) => {
-  fruit.name = name;
-  fruit.description = description;
-  fruit.limit = limit;
-  const data = await fruit.save();
-  return data;
-};
+  fruit.name = name
+  fruit.description = description
+  fruit.limit = limit
+  const data = await fruit.save()
+  return data
+}
 
 const deleteFruit = async (fruit) => {
-  await fruit.deleteOne();
-};
+  await fruit.deleteOne()
+}
 
 const deleteSoftFruit = async (fruit) => {
-  await fruit.save();
-};
+  await fruit.save()
+}
 module.exports = {
   findFruits,
   saveNewFruit,
   updateFruit,
   deleteFruit,
-  deleteSoftFruit,
-};
+  deleteSoftFruit
+}

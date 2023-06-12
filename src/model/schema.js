@@ -1,31 +1,31 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 const FruitSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true,
+    unique: true
   },
   amount: {
-    type:Number
+    type: Number
   },
   description: {
     type: String,
-    maxlength: 30,
+    maxlength: 30
   },
-  limit: Number,
-});
+  limit: Number
+})
 
 const StoreFruitSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true,
+    unique: true
   },
   amount: Number,
   fruit: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Fruit",
-  },
-});
-const StoreFruitModel = mongoose.model("Store", StoreFruitSchema);
-const FruitModel = mongoose.model("Fruit", FruitSchema);
+    ref: 'Fruit'
+  }
+})
+const StoreFruitModel = mongoose.model('Store', StoreFruitSchema)
+const FruitModel = mongoose.model('Fruit', FruitSchema)
 
-module.exports = { FruitModel, StoreFruitModel };
+module.exports = { FruitModel, StoreFruitModel }

@@ -1,18 +1,18 @@
-const { stringArg, nonNull } = require("nexus");
-const { findFruits } = require("../../repository/fruit.repository");
+const { stringArg, nonNull } = require('nexus')
+const { findFruits } = require('../../repository/fruit.repository')
 
 const findFruit = {
-  type: "Fruit",
+  type: 'Fruit',
   nullable: true,
   args: {
-    name: nonNull(stringArg()),
+    name: nonNull(stringArg())
   },
-  async resolve(_, { name }) {
-    const fruit = await findFruits(name);
+  async resolve (_, { name }) {
+    const fruit = await findFruits(name)
     if (fruit === null) {
-      throw new Error(`Fruit not found.`);
+      throw new Error('Fruit not found.')
     }
-    return fruit;
-  },
-};
-module.exports = { findFruit };
+    return fruit
+  }
+}
+module.exports = { findFruit }

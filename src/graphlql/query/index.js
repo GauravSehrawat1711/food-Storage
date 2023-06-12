@@ -1,10 +1,10 @@
-const { queryType } = require("nexus");
-const { findFruit } = require("./findFruit");
+const { queryType } = require('nexus')
+const { findFruit } = require('./findFruit')
 
 const Query = queryType({
-  definition(t) {
-    t.field("findFruit", findFruit);
-  },
-});
+  definition (t) {
+    t.field('findFruit', findFruit)
+  }
+})
 
-module.exports = { Query };
+module.exports = { Query }
